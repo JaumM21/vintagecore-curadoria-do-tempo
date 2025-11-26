@@ -1,0 +1,156 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* VintageCore Color Palette */
+    --background: 42 50% 93%;  /* #F2E6CE bege retrô claro */
+    --foreground: 211 71% 27%;  /* #133279 azul escuro */
+
+    --card: 0 0% 100%;
+    --card-foreground: 211 71% 27%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 211 71% 27%;
+
+    --primary: 211 71% 27%;  /* #133279 azul escuro */
+    --primary-foreground: 42 50% 93%;
+
+    --secondary: 202 63% 31%;  /* #1C5883 azul médio retrô */
+    --secondary-foreground: 42 50% 93%;
+
+    --muted: 42 40% 88%;
+    --muted-foreground: 211 40% 45%;
+
+    --accent: 45 84% 52%;  /* #D4AF37 dourado vintage */
+    --accent-foreground: 211 71% 27%;
+
+    --gold-burnt: 43 91% 45%;  /* #D59C0D dourado queimado */
+    
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 42 30% 85%;
+    --input: 42 30% 85%;
+    --ring: 45 84% 52%;
+
+    --radius: 0.75rem;
+    
+    /* VintageCore Custom Design Tokens */
+    --gradient-vintage: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)));
+    --gradient-gold: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--gold-burnt)));
+    --shadow-soft: 0 4px 20px -4px hsl(var(--primary) / 0.15);
+    --shadow-gold: 0 4px 30px -8px hsl(var(--accent) / 0.4);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 211 71% 27%;
+    --foreground: 42 50% 93%;
+
+    --card: 211 60% 20%;
+    --card-foreground: 42 50% 93%;
+
+    --popover: 211 60% 20%;
+    --popover-foreground: 42 50% 93%;
+
+    --primary: 42 50% 93%;
+    --primary-foreground: 211 71% 27%;
+
+    --secondary: 202 63% 31%;
+    --secondary-foreground: 42 50% 93%;
+
+    --muted: 211 50% 25%;
+    --muted-foreground: 42 30% 75%;
+
+    --accent: 45 84% 52%;
+    --accent-foreground: 211 71% 27%;
+
+    --gold-burnt: 43 91% 45%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 211 40% 30%;
+    --input: 211 40% 30%;
+    --ring: 45 84% 52%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+}
+
+@layer utilities {
+  .font-serif {
+    font-family: 'Libre Baskerville', serif;
+  }
+  
+  .font-sans {
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .vintage-shimmer {
+    animation: shimmer 2s infinite;
+  }
+  
+  @keyframes shimmer {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
+  }
+  
+  .hover-lift {
+    transition: var(--transition-smooth);
+  }
+  
+  .hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-gold);
+  }
+  
+  .text-gradient-gold {
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}

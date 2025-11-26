@@ -75,11 +75,12 @@ const Catalog = () => {
   const normalizeCategoryParam = (p: string) => {
     if (!p) return "all";
     const v = p.toLowerCase();
-    if (["all", "games", "audio", "photo"].includes(v)) return v;
+    if (["all", "games", "audio", "photo", "collectibles"].includes(v)) return v;
     // try mapping common display names
     if (v.includes("game")) return "games";
     if (v.includes("áudio") || v.includes("audio") || v.includes("vin")) return "audio";
     if (v.includes("foto")) return "photo";
+    if (v.includes("colecion")) return "collectibles";
     return "all";
   };
 
@@ -110,7 +111,7 @@ const Catalog = () => {
       if (selectedCategory === "games") categoryFilter = cat.includes("game");
       else if (selectedCategory === "audio") categoryFilter = cat.includes("áudio") || cat.includes("audio") || cat.includes("vin") || cat.includes("vinil");
       else if (selectedCategory === "photo") categoryFilter = cat.includes("foto");
-      // 'collectibles' category removed — nothing to check here
+      else if (selectedCategory === "collectibles") categoryFilter = cat.includes("colecion") || cat.includes("colecionavel");
     }
 
     return matchesSearch && decadeFilter && categoryFilter;
@@ -164,6 +165,7 @@ const Catalog = () => {
                   <SelectItem value="games">Games Clássicos</SelectItem>
                   <SelectItem value="audio">Áudio & Vinis</SelectItem>
                   <SelectItem value="photo">Fotografia</SelectItem>
+                  <SelectItem value="collectibles">Colecionáveis</SelectItem>
                 </SelectContent>
               </Select>
             </div>

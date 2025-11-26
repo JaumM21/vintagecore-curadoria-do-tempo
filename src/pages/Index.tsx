@@ -146,7 +146,7 @@ const Index = () => {
               { name: "Games Clássicos", key: "games", image: images.gameboy },
               { name: "Áudio & Vinis", key: "audio", image: images.unsplash_audio },
               { name: "Fotografia", key: "photo", image: images.polaroid },
-              /* colecionáveis removido por solicitação */
+              { name: "Colecionáveis", key: "collectibles", image: images.collectibles }
             ].map((category) => (
               <Link
               key={category.key}

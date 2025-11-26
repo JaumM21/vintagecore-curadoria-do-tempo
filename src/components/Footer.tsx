@@ -67,6 +67,11 @@ const Footer = () => {
                   Fotografia Vintage
                 </Link>
               </li>
+              <li>
+                <Link to="/catalog?category=collectibles" className="text-sm text-muted-foreground hover:text-accent transition-colors">
+                  Colecionáveis
+                </Link>
+              </li>
             </ul>
           </div>
 
